@@ -90,7 +90,9 @@ sed -i "s/.*8009.*//g"   ~/apache-tomee-plus-$TOMEE_VERSION/conf/server.xml
 if [ -f pom.xml ]; then
   mv ~/target/*.war ~/apache-tomee-plus-$TOMEE_VERSION/webapps/ROOT.war
 else 
-  mv *.war ~/apache-tomee-plus-$TOMEE_VERSION/webapps/ROOT.war
+  mkdir ~/apache-tomee-plus-$TOMEE_VERSION/webapps/ROOT
+  mv META-INF ~/apache-tomee-plus-$TOMEE_VERSION/webapps/ROOT/
+  mv WEB-INF ~/apache-tomee-plus-$TOMEE_VERSION/webapps/ROOT/
 fi
 
 ~/apache-tomee-plus-$TOMEE_VERSION/bin/catalina.sh run
