@@ -10,20 +10,26 @@ TOMEE_VERSION="1.7.0"
 BIN_DIR=$(dirname $0)
 BUILD_DIR=$1
 CACHE_DIR=$2
-LP_DIR=`cd $(dirname $0); cd ..; pwd`
+LP_DIR=$(cd $(dirname $0)/..; pwd)
 
-curl --silent --location http://heroku-jvm-common.s3.amazonaws.com/jvm-buildpack-common.tar.gz | tar xz
-. bin/java
+. $LP_DIR/lib/common.sh
 
-echo "java.runtime.version=1.7" > ${BUILD_DIR}/system.properties
+ENV_DIR=$3
 
-logger -p user.notice -t "slugc[$$]" "language_pack_java download_jdk"
-LOGGER_FLAGS="$LOGGER_FLAGS download_jdk"
+export_env_dir $ENV_DIR
+
+JVM_COMMON_BUILDPACK=${JVM_COMMON_BUILDPACK:-https://codon-buildpacks.s3.amazonaws.com/buildpacks/heroku/jvm-common.tgz}
+mkdir -p /tmp/jvm-common
+curl --silent --location $JVM_COMMON_BUILDPACK | tar xzm -C /tmp/jvm-common --strip-components=1
+. /tmp/jvm-common/bin/util
+. /tmp/jvm-common/bin/java
+
+# install JDK
 javaVersion=$(detect_java_version ${BUILD_DIR})
-echo -n "-----> Installing OpenJDK ${javaVersion}..."
+status_pending "Installing OpenJDK ${javaVersion}"
 install_java ${BUILD_DIR} ${javaVersion}
 jdk_overlay ${BUILD_DIR}
-echo "done"
+status_done
 
 #create the cache dir if it doesn't exist
 mkdir -p $CACHE_DIR
