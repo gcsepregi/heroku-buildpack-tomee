@@ -97,7 +97,7 @@ fi
 
 export JAVA_HOME=${BUILD_DIR}/.jdk/
 
-~/apache-tomee-plus-$TOMEE_VERSION/bin/startup.sh
+~/apache-tomee-plus-$TOMEE_VERSION/bin/catalina.sh run
 EOF
 
 chmod +x boot.sh
