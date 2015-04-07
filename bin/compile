@@ -95,6 +95,11 @@ else
   mv WEB-INF ~/apache-tomee-plus-$TOMEE_VERSION/webapps/ROOT/
 fi
 
+echo ${BUILD_DIR}
+pwd
+cd ~
+pwd
+
 ~/apache-tomee-plus-$TOMEE_VERSION/bin/catalina.sh run
 EOF
 
