@@ -95,10 +95,6 @@ else
   mv WEB-INF ~/apache-tomee-plus-$TOMEE_VERSION/webapps/ROOT/
 fi
 
-export JAVA_HOME=~/.jdk
-
-$JAVA_HOME/bin/java -version
-
 ~/apache-tomee-plus-$TOMEE_VERSION/bin/catalina.sh run
 EOF
 
