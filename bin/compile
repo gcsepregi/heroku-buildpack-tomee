@@ -95,10 +95,8 @@ else
   mv WEB-INF ~/apache-tomee-plus-$TOMEE_VERSION/webapps/ROOT/
 fi
 
-echo ${BUILD_DIR}
-pwd
-cd ~
-pwd
+echo $JAVA_HOME
+echo $JRE_HOME
 
 ~/apache-tomee-plus-$TOMEE_VERSION/bin/catalina.sh run
 EOF
