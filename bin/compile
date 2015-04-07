@@ -12,8 +12,6 @@ BUILD_DIR=$1
 CACHE_DIR=$2
 LP_DIR=$(cd $(dirname $0)/..; pwd)
 
-. $LP_DIR/lib/common.sh
-
 ENV_DIR=$3
 
 export_env_dir $ENV_DIR
