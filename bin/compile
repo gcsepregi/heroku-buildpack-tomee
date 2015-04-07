@@ -95,8 +95,7 @@ else
   mv WEB-INF ~/apache-tomee-plus-$TOMEE_VERSION/webapps/ROOT/
 fi
 
-echo $JAVA_HOME
-echo $JRE_HOME
+$JAVA_HOME/bin/java -version
 
 ~/apache-tomee-plus-$TOMEE_VERSION/bin/catalina.sh run
 EOF
