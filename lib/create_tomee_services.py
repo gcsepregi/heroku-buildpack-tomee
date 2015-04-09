@@ -18,12 +18,12 @@ tomee_xml.write('''
 mysql_datasources = service_descriptor['mysql']
 
 for datasource in mysql_datasources:
-    tomee_xml.write('<Resource id="' + datasource['name'] + '" type="javax.sql.DataSource">')
-    tomee_xml.write('    JtaManaged    true')
-    tomee_xml.write('    JdbcDriver    com.mysql.jdbc.Driver')
-    tomee_xml.write('    JdbcUrl       ' + datasource['credentials']['jdbcUrl'])
-    tomee_xml.write('    UserName      ' + datasource['credentials']['username'])
-    tomee_xml.write('    Password      ' + datasource['credentials']['password'])
-    tomee_xml.write('</Resource>')
+    tomee_xml.write('<Resource id="' + datasource['name'] + '" type="javax.sql.DataSource">\n')
+    tomee_xml.write('    JtaManaged    true\n')
+    tomee_xml.write('    JdbcDriver    com.mysql.jdbc.Driver\n')
+    tomee_xml.write('    JdbcUrl       ' + datasource['credentials']['jdbcUrl'] + '\n')
+    tomee_xml.write('    UserName      ' + datasource['credentials']['username'] + '\n')
+    tomee_xml.write('    Password      ' + datasource['credentials']['password'] + '\n')
+    tomee_xml.write('</Resource>\n\n')
 
 tomee_xml.write('</tomee>') 
