@@ -46,7 +46,7 @@ python /tmp/buildpacks/heroku-buildpack-tomee/lib/create_tomee_services.py
 
 MYSQL_URL="http://repo1.maven.org/maven2/mysql/mysql-connector-java/$MYSQL_CONNECTOR_VERSION/mysql-connector-java-$MYSQL_CONNECTOR_VERSION.jar"
 echo "-----> Getting MySQL Connector version $MYSQL_CONNECTOR_VERSION"
-curl --silent --location "$MYSQL_URL"
+curl --silent --location -O "$MYSQL_URL" > 
 
 mv $BUILD_DIR/mysql-connector-java-$MYSQL_CONNECTOR_VERSION.jar $BUILD_DIR/apache-tomee-jaxrs-$TOMEE_VERSION/lib/
 
