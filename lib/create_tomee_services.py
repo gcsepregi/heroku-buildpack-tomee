@@ -5,8 +5,7 @@ service_descriptor = json.loads(os.environ['VCAP_SERVICES'])
 
 tomee_xml = open('tomee.xml', 'w')
 
-tomee_xml.write('''
-<?xml version="1.0" encoding="UTF-8"?>
+tomee_xml.write('''<?xml version="1.0" encoding="UTF-8"?>
 <tomee>
   <!-- see http://tomee.apache.org/containers-and-resources.html -->
 
