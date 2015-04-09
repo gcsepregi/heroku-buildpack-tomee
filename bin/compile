@@ -80,7 +80,8 @@ echo "-----> Bundling TomEE version $TOMEE_VERSION"
 curl --silent --location "$TOMEE_URL" | tar xz
 rm -fr $BUILD_DIR/apache-tomee-plus-$TOMEE_VERSION/webapps/*
 
-
+pwd
+ls -la
 python ../lib/create_tomee_services.py
 
 cat >>boot.sh <<EOF
