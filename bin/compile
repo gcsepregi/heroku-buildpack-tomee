@@ -81,6 +81,8 @@ curl --silent --location "$TOMEE_URL" | tar xz
 rm -fr $BUILD_DIR/apache-tomee-plus-$TOMEE_VERSION/webapps/*
 
 
+echo $VCAP_SERVICES
+
 cat >>boot.sh <<EOF
 # Only one port is allowed
 sed -i "s/8080/\$PORT/g" ~/apache-tomee-plus-$TOMEE_VERSION/conf/server.xml
@@ -94,8 +96,6 @@ else
   mv META-INF ~/apache-tomee-plus-$TOMEE_VERSION/webapps/ROOT/
   mv WEB-INF ~/apache-tomee-plus-$TOMEE_VERSION/webapps/ROOT/
 fi
-
-echo $VCAP_SERVICES
 
 ~/apache-tomee-plus-$TOMEE_VERSION/bin/catalina.sh run
 EOF
