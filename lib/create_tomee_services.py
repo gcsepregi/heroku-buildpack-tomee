@@ -3,7 +3,7 @@ import os
 
 service_descriptor = json.loads(os.environ['VCAP_SERVICES'])
 
-tomee_xml = open('~/tomee.xml', 'w')
+tomee_xml = open('tomee.xml', 'w')
 
 tomee_xml.write('''
 <?xml version="1.0" encoding="UTF-8"?>
